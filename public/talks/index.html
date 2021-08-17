@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Talks | JunWei Song&#39;s Blog</title>
+  <meta name="description" content="talks2021Black Hat Asia 2021 Arsenal info Oh My H@ck 2021(invited) info 2020HITB Armory Amsterdam 2020 - Quark Engine An Obfuscation Neglect Android Malware Scoring System info. Europython 2020 - So,">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Talks">
+<meta property="og:url" content="https://krnick.github.io/talks/index.html">
+<meta property="og:site_name" content="JunWei Song&#39; Blog">
+<meta property="og:description" content="talks2021Black Hat Asia 2021 Arsenal info Oh My H@ck 2021(invited) info 2020HITB Armory Amsterdam 2020 - Quark Engine An Obfuscation Neglect Android Malware Scoring System info. Europython 2020 - So,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-23T06:16:10.000Z">
+<meta property="article:modified_time" content="2021-08-17T10:40:57.128Z">
+<meta property="article:author" content="JunWei Song">
+<meta property="article:tag" content="Security, Malware, Hacking">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://krnick.github.io/talks/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="JunWei Song&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="source/images/quark_junwei.jpg" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/krnick" target="_blank">
+          <img class="img-circle img-rotate" src="/images/quark_junwei.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">JunWei Song</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Security Researcher</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Taiwan</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-talks">
+          <a href="/talks">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Talks</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/krnick" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/JunWei__Song" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>誠實面對自己</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Debian/" rel="tag">Debian</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kali-Linux/" rel="tag">Kali Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Debian/" style="font-size: 13px;">Debian</a> <a href="/tags/Kali-Linux/" style="font-size: 13px;">Kali Linux</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/python/" style="font-size: 13px;">python</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/05/03/Debian-Packaging/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/03/Debian-Packaging/" class="title">Debian Packaging</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-03T08:10:42.000Z" itemprop="datePublished">2021-05-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2020/09/24/pipenv/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/09/24/pipenv/" class="title">pipenv</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-24T06:15:06.000Z" itemprop="datePublished">2020-09-24</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Talks
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/talks/index.html" class="article-date">
+	  <time datetime="2020-09-23T06:16:10.000Z" itemprop="datePublished">2020-09-23</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/talks/index.html#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="talks"><a href="#talks" class="headerlink" title="talks"></a>talks</h1><h2 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h2><p>Black Hat Asia 2021 Arsenal <a target="_blank" rel="noopener" href="https://www.blackhat.com/asia-21/arsenal/schedule/index.html#quark-engine-storyteller-of-android-malware-22458">info</a></p>
+<p>Oh My H@ck 2021(invited) <a target="_blank" rel="noopener" href="https://omhconf.pl/omh-international/lecture#id=65471">info</a></p>
+<h2 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h2><p>HITB Armory Amsterdam 2020 - Quark Engine An Obfuscation Neglect Android Malware Scoring System <a target="_blank" rel="noopener" href="https://conference.hitb.org/hitbsecconf2020ams/hitb-armory/">info</a>.</p>
+<p>Europython 2020 - So, You Want to Build an Anti-Virus Engine? <a target="_blank" rel="noopener" href="https://ep2020.europython.eu/talks/BDppVua-so-you-want-to-build-an-anti-virus-engine/">info</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OWeAumHkv7A&ab_channel=EuroPythonConference">video</a></p>
+<p>HITB Lockdown 002 - Quark Engine An Obfuscation Neglect Android Malware Scoring System <a target="_blank" rel="noopener" href="https://conference.hitb.org/hitb-lockdown002/sessions/quark-engine-an-obfuscation-neglect-android-malware-scoring-system/">info</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-XMTow9boyA&ab_channel=HackInTheBoxSecurityConference">video</a></p>
+<p>DEFCON 28 BTV - Quark Engine An Obfuscation Neglect Android Malware Scoring System <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=XK-yqHPnsvc&ab_channel=DEFCONConference">video</a></p>
+<p>PyCon TW 2020 - So, You Want to Build an Anti-Virus Engine? <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xvfWAvinUzc&ab_channel=PyConTaiwan">video</a></p>
+<p>ROOTCON 2020 - Quark Engine(invited) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SOH4eqrv9_g&ab_channel=ROOTCONHackingConference">video</a></p>
+<p>PyCon India 2020 - So, You Want to Build an Anti-Virus Engine? <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=v1OccNNfh3Q&ab_channel=PythonIndiaPythonIndia">video</a></p>
+<p>GrayHat 2020 - Quark Engine(invited) <a target="_blank" rel="noopener" href="https://grayhat.co/armory/quark-engine/">video</a></p>
+<p>GrayHat 2020 Armory - Quark Engine(invited) <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dSA7GSYvc0o&feature=emb_title&ab_channel=Grayhat">video</a></p>
+<h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><p>PyCon Taiwan 2019 - Click Click Boom! Bombs Over Our Minds! <a target="_blank" rel="noopener" href="https://tw.pycon.org/2019/en-us/events/talk/864922598880837873/">info</a>, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=D_WHNa4VO0I&ab_channel=PyConTaiwan">video</a></p>
+<p>PyCon Malaysia 2019 - Click Click Boom! Bombs Over Our Minds! <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hDtBRnfe85A&ab_channel=KunYuChen">video</a></p>
+<p>PyCon Korea 2019 - Click Click Boom! Bombs Over Our Minds! <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-S4JVQt6GX4&ab_channel=PyConKorea">video</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink</strong>
+      <a href="https://krnick.github.io/talks/index.html" title="Talks" target="_blank" rel="external">https://krnick.github.io/talks/index.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>License：</strong> <a href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW" target="_blank" rel="external">CC BY 4.0</a>
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/krnick" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/quark_junwei.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/krnick" target="_blank"><span class="text-dark">JunWei Song</span><small class="ml-1x">Security Researcher</small></a></h3>
+        <div>JunWei is a security researcher and open-source enthusiast from Taiwan. A paranoid Pythonista and CPython contributor who now focuses on Android reverse engineering and malware analysis. And as a member of the PyCon Taiwan Program Committee, previously presented at Black Hat, DEFCON, HITB, ROOTCON, GrayHat, PyCon Europe/TW/KR/MY/IN. He’s the co-founder of Quark-Engine and the Quark package maintainer on Kali Linux, leading Quark to participate in the GSoC under the Honeynet Project since 2021.</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="facebook,twitter" data-mobile-sites=""></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/krnick" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://twitter.com/JunWei__Song" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
