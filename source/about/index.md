@@ -24,4 +24,4 @@ The projects I am currently working on:
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=krnick.krnick)
 
-[Resume (English Version)](https://github.com/krnick/talks/blob/main/CV.pdf)
+[Resume (English Version)](https://www.cakeresume.com/sungboss2004)
