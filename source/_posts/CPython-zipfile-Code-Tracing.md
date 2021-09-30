@@ -30,7 +30,6 @@ As you can see, the key point to against the zip bomb is by limiting a block, in
 
 According to Cara Marie's method, we try to figure out the difference between zipfile and zlib, why can't we use zipfile directly for defending, so we started to study zipfile source code.
 
-2019-03-08 09:14:23
 
 # [zipfile](https://github.com/python/cpython/blob/master/Lib/zipfile.py)
 
@@ -59,7 +58,7 @@ def _get_decompressor(compress_type):
 ```
 
 
-From this, we can get that the zipfile is based on what zlib does. So we have to understand what zlib did?
+From this, we can know that the zipfile is based on what zlib does. So we have to deep dive into what zlib did?
 
 # [zlib](https://docs.python.org/3/library/zlib.html)
 
@@ -77,17 +76,14 @@ There are two ways to compress/decompress.
 
 ---
 
-However, in the official documentation, there is no clear explanation of how to use the API to decompress the file. The usage in this way is to obtain the file data stream and decompress it through the Low-Level method. And we look back at the zipfile, and found that they have done zlib for decompression, so we intend to consider the zipfile first, to give the patch.
-
+However, in the official documentation, there is no clear explanation of how to use the API to decompress the file. The usage in this way is to obtain the file data stream and decompress it through the Low-Level method. And we went back to the zipfile module, and found that they have done zlib for decompression, so we intend to consider the zipfile first, to give the patch.
 
 In the way that zipfile belongs to decompressobj, we have the first way to accumulate Chunk. As long as we can find out where to do the decompression of Chunk, we accumulate it and give a threshold. If it exceeds, then consider that it is possible to be the Zip Bomb.
 
 
-# Look back at the zipfile
-
+# Go back at the zipfile
 
 1. Starting with the object
-
 
 [Line 706](https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L706)
 ```python
@@ -97,9 +93,6 @@ return zlib.decompressobj(-15)
 [Line 791](https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L791)
 
 It is the place where the class of zlib.decompressobj(-15) object is obtained and initialized.
-
-
-
 
 
 which belongs to ZipExtFile class
