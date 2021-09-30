@@ -13,8 +13,8 @@
     
 
     
-        <meta name="description" content="Goal：zipfile analysis
-According to Black Hat’s  Cara Marie research, there are some solutions against Zip Bomb. By limiting the size of the block to b"/>
+        <meta name="description" content="BackgroundI reported a zip bomb vulnerability to the CPython community in 2019. Here are all the interesting resources and ideas.
+Issue Discussion on "/>
     
 
     <!--Author-->
@@ -24,13 +24,13 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="CPython zipfile Code Tracing"/>
+        <meta property="og:title" content="CPython zipfile module code tracing for zip bomb vulnerability"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Goal：zipfile analysis
-According to Black Hat’s  Cara Marie research, there are some solutions against Zip Bomb. By limiting the size of the block to b"/>
+        <meta property="og:description" content="BackgroundI reported a zip bomb vulnerability to the CPython community in 2019. Here are all the interesting resources and ideas.
+Issue Discussion on "/>
     
 
     <!--Open Graph Site Name-->
@@ -57,7 +57,7 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
 
     <!-- Title -->
     
-    <title>CPython zipfile Code Tracing - JunWei Song&#39; Blog</title>
+    <title>CPython zipfile module code tracing for zip bomb vulnerability - JunWei Song&#39; Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -178,7 +178,7 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>CPython zipfile Code Tracing</h1>
+                    <h1>CPython zipfile module code tracing for zip bomb vulnerability</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -206,34 +206,37 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="Goal："><a href="#Goal：" class="headerlink" title="Goal："></a>Goal：</h1><p>zipfile analysis</p>
-<p>According to Black Hat’s  <a target="_blank" rel="noopener" href="https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf">Cara Marie</a> research, there are some solutions against Zip Bomb. By limiting the size of the block to be read at a time, if there is still data remaining after the block needs to be decompressed after reading this block, it is considered that it is possible to be Zip Bomb.</p>
-<p>Here is <a target="_blank" rel="noopener" href="https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf">Cara Marie</a> code</p>
+                <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>I reported a zip bomb vulnerability to the CPython community in 2019. Here are all the interesting resources and ideas.</p>
+<p><a target="_blank" rel="noopener" href="https://bugs.python.org/issue36462">Issue Discussion on BPO</a></p>
+<p><a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9674">CVE-2019-9674</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/zipfile.html#decompression-pitfalls">Decompression pitfall I wrote for official documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/python/cpython/pull/13378">Pull Request related it</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=-S4JVQt6GX4&ab_channel=PyConKorea">PyCon Korea 2019 - Click Click Boom! Bombs Over Our Minds</a></p>
+<h1 id="zipfile-analysis"><a href="#zipfile-analysis" class="headerlink" title="zipfile analysis"></a>zipfile analysis</h1><p>According to Black Hat’s  <a target="_blank" rel="noopener" href="https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf">Cara Marie</a> research, there are some solutions against Zip Bomb. By limiting the size of the block to be read at a time, if there is still data remaining after the block that needs to be decompressed after reading this block, it is considered that it is possible to be a Zip Bomb.</p>
+<p>Below is <a target="_blank" rel="noopener" href="https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf">Cara Marie</a> code</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decompress</span>(<span class="params">data, maxsize=<span class="number">1024000</span></span>):</span></span><br><span class="line">    dec = zlib.decompressobj()</span><br><span class="line">    data = dec.decompress(data, maxsize)</span><br><span class="line">    <span class="keyword">if</span> dec.unconsumed_tail:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Possible bomb&quot;</span>)</span><br><span class="line">    <span class="keyword">del</span> dec</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
 
-<p>As you can see, the key point to against the zip bomb is by limiting a block, in this case, is max size 102400. However, we take a look at python zipfile standard library zipfile.</p>
+<p>As you can see, the strategy to defeating the zip bomb is by limiting a block, in this case, is max size 102400. However, we take a look at the Python standard library, <a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/3.9/Lib/zipfile.py">zipfile</a>.</p>
 <hr>
-<p>According to Cara Marie’s method, we try to figure out the difference between zipfile and zlib, why can’t we use zipfile directly for defending, so we started to study zipfile source code.</p>
-<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/master/Lib/zipfile.py">zipfile</a></h1><p>Since we focus on the zip format and prefer the DEFLATED algorithm, in the zipfile we can see the key unzipped file location, starting at line 702, getting the zlib object, and finally returning the object.</p>
-<p><strong>zlib.decompressobj(-15)</strong></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L702-L716">https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L702-L716</a></p>
+<p>According to Cara Marie’s approach, we try to figure out the difference between zipfile and zlib and <strong>why we can’t use zipfile directly for preventing zip bombs</strong>, so we started to study zipfile source code.</p>
+<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/master/Lib/zipfile.py">zipfile</a></h1><p>Since I focus on the zip format and pick the most commonly used algorithm, DEFLATED algorithm. Inside the zipfile, we can see the location of unzipped function, starting at line <code>702</code>, getting the zlib object, and finally returning the object.</p>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L702-L716">zlib.decompressobj(-15)</a></strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_decompressor</span>(<span class="params">compress_type</span>):</span></span><br><span class="line">    <span class="keyword">if</span> compress_type == ZIP_STORED:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">elif</span> compress_type == ZIP_DEFLATED:</span><br><span class="line">        <span class="keyword">return</span> zlib.decompressobj(<span class="number">-15</span>)</span><br><span class="line">    <span class="keyword">elif</span> compress_type == ZIP_BZIP2:</span><br><span class="line">        <span class="keyword">return</span> bz2.BZ2Decompressor()</span><br><span class="line">    <span class="keyword">elif</span> compress_type == ZIP_LZMA:</span><br><span class="line">        <span class="keyword">return</span> LZMADecompressor()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        descr = compressor_names.get(compress_type)</span><br><span class="line">        <span class="keyword">if</span> descr:</span><br><span class="line">            <span class="keyword">raise</span> NotImplementedError(<span class="string">&quot;compression type %d (%s)&quot;</span> % (compress_type, descr))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> NotImplementedError(<span class="string">&quot;compression type %d&quot;</span> % (compress_type,))</span><br></pre></td></tr></table></figure>
 
-
-<p>From this, we can know that the zipfile is based on what zlib does. So we have to deep dive into what zlib did?</p>
-<h1 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/zlib.html">zlib</a></h1><p>According to the Zlib documentation</p>
+<p>From the above code, we can know that the zipfile is based on what zlib does. So we have to deep dive into what zlib did?</p>
+<h1 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/zlib.html">zlib</a></h1><p>According to the zlib documentation</p>
 <blockquote>
-<p>There are two ways to compression and decompression,.compress() and .decompress() will fit all files into memory at once. Contrast to the method of the object. It using .compressobj() and .decompressobj() which won’t fit into memory at once.</p>
+<p>There are two ways to compression and decompression, .compress() and .decompress() will fit all files into memory at once. In contrast to the method of the object. It using .compressobj() and .decompressobj() which won’t fit into memory at once.</p>
 </blockquote>
 <p>There are two ways to compress/decompress.</p>
-<ul>
+<ol>
 <li>.compress() and .decompress() will put the entire file into memory at a time</li>
 <li>.compressobj() and .decompressobj() separate the file , compress/decompress one block at a time</li>
-</ul>
+</ol>
 <hr>
-<p>However, in the official documentation, there is no clear explanation of how to use the API to decompress the file. The usage in this way is to obtain the file data stream and decompress it through the Low-Level method. And we went back to the zipfile module, and found that they have done zlib for decompression, so we intend to consider the zipfile first, to give the patch.</p>
-<p>In the way that zipfile belongs to decompressobj, we have the first way to accumulate Chunk. As long as we can find out where to do the decompression of Chunk, we accumulate it and give a threshold. If it exceeds, then consider that it is possible to be the Zip Bomb.</p>
-<h1 id="Go-back-at-the-zipfile"><a href="#Go-back-at-the-zipfile" class="headerlink" title="Go back at the zipfile"></a>Go back at the zipfile</h1><ol>
+<p>However, the official documentation does not clearly explain how to use the API to decompress files. The purpose of this method is to obtain the file data stream and decompress it through the Low-Level method. And we went back to the zipfile module and found that they had already done the decompression of zlib, so we planned to apply the patch for zipfile first.</p>
+<p>In the way that zipfile belongs to <code>decompressobj</code>, we have the first way to accumulate chunks. As long as we can find out where to do the decompression of chunks, we accumulate it and give a threshold. If it exceeds, then consider that it is possible to be the zip bomb.</p>
+<h1 id="Get-back-at-the-zipfile"><a href="#Get-back-at-the-zipfile" class="headerlink" title="Get back at the zipfile"></a>Get back at the zipfile</h1><ol>
 <li>Starting with the object</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L706">Line 706</a></p>
@@ -244,7 +247,7 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
 <p>which belongs to ZipExtFile class</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, fileobj, mode, zipinfo, decrypter=None,close_fileobj=False</span>):</span></span><br></pre></td></tr></table></figure>
 
-<p>Let’s find out what filefilej is</p>
+<p>Let’s find out what <code>fileobj</code> is</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L1545">Line 1545</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> ZipExtFile(zef_file, mode, zinfo, zd, <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
@@ -262,11 +265,11 @@ According to Black Hat’s  Cara Marie research, there are some solutions agains
 <p><a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L977-L984">Line 977</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">elif</span> self._compress_type == ZIP_DEFLATED:</span><br><span class="line">    n = max(n, self.MIN_READ_SIZE)</span><br><span class="line">    data = self._decompressor.decompress(data, n)</span><br><span class="line">    self._eof = (self._decompressor.eof <span class="keyword">or</span></span><br><span class="line">                 self._compress_left &lt;= <span class="number">0</span> <span class="keyword">and</span></span><br><span class="line">                 <span class="keyword">not</span> self._decompressor.unconsumed_tail)</span><br><span class="line">    <span class="keyword">if</span> self._eof:</span><br><span class="line">        data += self._decompressor.flush()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>We observed that after choosing to use the ZIP_DEFLATED compression algorithm, we did a function max to get n .</p>
+<p>We observed that after choosing to use the ZIP_DEFLATED compression algorithm, we did a function max to get n.</p>
 <h1 id="Key-Point"><a href="#Key-Point" class="headerlink" title="Key Point"></a>Key Point</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max(n, self.MIN_READ_SIZE)</span><br></pre></td></tr></table></figure>
 
 <p>When you use zlib.decompressobj as a block, how big is your block?<br>, self.MIN_READ_SIZE is preset to 4096 bytes, which is the size of a page in the operating system.</p>
-<h2 id="Black-Hat’s-solution"><a href="#Black-Hat’s-solution" class="headerlink" title="Black Hat’s solution"></a>Black Hat’s solution</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decompress</span>(<span class="params">data, maxsize=<span class="number">1024000</span></span>):</span></span><br><span class="line">    dec = zlib.decompressobj()</span><br><span class="line">    data = dec.decompress(data, maxsize)</span><br><span class="line">    <span class="keyword">if</span> dec.unconsumed_tail:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Possible bomb&quot;</span>)</span><br><span class="line">    <span class="keyword">del</span> dec</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<h2 id="Cara-Marie’s-solution"><a href="#Cara-Marie’s-solution" class="headerlink" title="Cara Marie’s solution"></a>Cara Marie’s solution</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decompress</span>(<span class="params">data, maxsize=<span class="number">1024000</span></span>):</span></span><br><span class="line">    dec = zlib.decompressobj()</span><br><span class="line">    data = dec.decompress(data, maxsize)</span><br><span class="line">    <span class="keyword">if</span> dec.unconsumed_tail:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Possible bomb&quot;</span>)</span><br><span class="line">    <span class="keyword">del</span> dec</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
 
 <h2 id="It-sets-maxsize-to-102400-bytes"><a href="#It-sets-maxsize-to-102400-bytes" class="headerlink" title="It sets maxsize to 102400 bytes"></a>It sets maxsize to 102400 bytes</h2><p>According to the official document</p>
 <blockquote>

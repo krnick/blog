@@ -1,16 +1,28 @@
 ---
-title: CPython zipfile Code Tracing
+title: CPython zipfile module code tracing for zip bomb vulnerability
 date: 2021-09-30 16:39:10
 tags:
 ---
 
-# Goal：
+# Background
 
-zipfile analysis
+I reported a zip bomb vulnerability to the CPython community in 2019. Here are all the interesting resources and ideas.
 
-According to Black Hat's  [Cara Marie](https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf) research, there are some solutions against Zip Bomb. By limiting the size of the block to be read at a time, if there is still data remaining after the block needs to be decompressed after reading this block, it is considered that it is possible to be Zip Bomb.
+[Issue Discussion on BPO](https://bugs.python.org/issue36462)
 
-Here is [Cara Marie](https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf) code
+[CVE-2019-9674](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9674)
+
+[Decompression pitfall I wrote for official documentation](https://docs.python.org/3/library/zipfile.html#decompression-pitfalls)
+
+[Pull Request related it](https://github.com/python/cpython/pull/13378)
+
+[PyCon Korea 2019 - Click Click Boom! Bombs Over Our Minds](https://www.youtube.com/watch?v=-S4JVQt6GX4&ab_channel=PyConKorea)
+
+# zipfile analysis
+
+According to Black Hat's  [Cara Marie](https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf) research, there are some solutions against Zip Bomb. By limiting the size of the block to be read at a time, if there is still data remaining after the block that needs to be decompressed after reading this block, it is considered that it is possible to be a Zip Bomb.
+
+Below is [Cara Marie](https://www.blackhat.com/docs/us-16/materials/us-16-Marie-I-Came-to-Drop-Bombs-Auditing-The-Compression-Algorithm-Weapons-Cache.pdf) code
 
 ```python
 import zlib
@@ -23,22 +35,21 @@ def decompress(data, maxsize=1024000):
     return data
 ```
 
-As you can see, the key point to against the zip bomb is by limiting a block, in this case, is max size 102400. However, we take a look at python zipfile standard library zipfile.
+As you can see, the strategy to defeating the zip bomb is by limiting a block, in this case, is max size 102400. However, we take a look at the Python standard library, [zipfile](https://github.com/python/cpython/blob/3.9/Lib/zipfile.py).
 
 
 ---
 
-According to Cara Marie's method, we try to figure out the difference between zipfile and zlib, why can't we use zipfile directly for defending, so we started to study zipfile source code.
+According to Cara Marie's approach, we try to figure out the difference between zipfile and zlib and **why we can't use zipfile directly for preventing zip bombs**, so we started to study zipfile source code.
 
 
 # [zipfile](https://github.com/python/cpython/blob/master/Lib/zipfile.py)
 
+Since I focus on the zip format and pick the most commonly used algorithm, DEFLATED algorithm. Inside the zipfile, we can see the location of unzipped function, starting at line `702`, getting the zlib object, and finally returning the object.
 
-Since we focus on the zip format and prefer the DEFLATED algorithm, in the zipfile we can see the key unzipped file location, starting at line 702, getting the zlib object, and finally returning the object.
+**[zlib.decompressobj(-15)](https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L702-L716)**
 
-**zlib.decompressobj(-15)**
 
-https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L702-L716
 ```python
 def _get_decompressor(compress_type):
     if compress_type == ZIP_STORED:
@@ -57,31 +68,27 @@ def _get_decompressor(compress_type):
             raise NotImplementedError("compression type %d" % (compress_type,))
 ```
 
-
-From this, we can know that the zipfile is based on what zlib does. So we have to deep dive into what zlib did?
+From the above code, we can know that the zipfile is based on what zlib does. So we have to deep dive into what zlib did?
 
 # [zlib](https://docs.python.org/3/library/zlib.html)
 
+According to the zlib documentation
 
-According to the Zlib documentation
-
-> There are two ways to compression and decompression,.compress() and .decompress() will fit all files into memory at once. Contrast to the method of the object. It using .compressobj() and .decompressobj() which won’t fit into memory at once.
-
-
+> There are two ways to compression and decompression, .compress() and .decompress() will fit all files into memory at once. In contrast to the method of the object. It using .compressobj() and .decompressobj() which won’t fit into memory at once.
 
 There are two ways to compress/decompress.
 
-* .compress() and .decompress() will put the entire file into memory at a time
-* .compressobj() and .decompressobj() separate the file , compress/decompress one block at a time
+1. .compress() and .decompress() will put the entire file into memory at a time
+2. .compressobj() and .decompressobj() separate the file , compress/decompress one block at a time
 
 ---
 
-However, in the official documentation, there is no clear explanation of how to use the API to decompress the file. The usage in this way is to obtain the file data stream and decompress it through the Low-Level method. And we went back to the zipfile module, and found that they have done zlib for decompression, so we intend to consider the zipfile first, to give the patch.
+However, the official documentation does not clearly explain how to use the API to decompress files. The purpose of this method is to obtain the file data stream and decompress it through the Low-Level method. And we went back to the zipfile module and found that they had already done the decompression of zlib, so we planned to apply the patch for zipfile first.
 
-In the way that zipfile belongs to decompressobj, we have the first way to accumulate Chunk. As long as we can find out where to do the decompression of Chunk, we accumulate it and give a threshold. If it exceeds, then consider that it is possible to be the Zip Bomb.
+In the way that zipfile belongs to `decompressobj`, we have the first way to accumulate chunks. As long as we can find out where to do the decompression of chunks, we accumulate it and give a threshold. If it exceeds, then consider that it is possible to be the zip bomb.
 
 
-# Go back at the zipfile
+# Get back at the zipfile
 
 1. Starting with the object
 
@@ -100,7 +107,7 @@ which belongs to ZipExtFile class
     def __init__(self, fileobj, mode, zipinfo, decrypter=None,close_fileobj=False):
 ```
 
-Let's find out what filefilej is
+Let's find out what `fileobj` is
 
 [Line 1545](https://github.com/python/cpython/blob/f2320b37d9c85d8ddfc0c6afa81b77cd5f6e5ef2/Lib/zipfile.py#L1545)
 
@@ -149,7 +156,7 @@ and then
 
 ```
 
-We observed that after choosing to use the ZIP_DEFLATED compression algorithm, we did a function max to get n .
+We observed that after choosing to use the ZIP_DEFLATED compression algorithm, we did a function max to get n.
 
 # Key Point
 ```python
@@ -159,7 +166,7 @@ max(n, self.MIN_READ_SIZE)
 When you use zlib.decompressobj as a block, how big is your block?
 , self.MIN_READ_SIZE is preset to 4096 bytes, which is the size of a page in the operating system.
 
-## Black Hat's solution
+## Cara Marie's solution
 
 ```python
 import zlib
@@ -189,3 +196,4 @@ Max_length represents the file block size that can be read into the memory at a 
 Therefore, his idea is more than 102400 bytes. If there is any remaining data, it means there may be a zip bomb.
 
 ![](https://i.imgur.com/7schHy0.png)
+
