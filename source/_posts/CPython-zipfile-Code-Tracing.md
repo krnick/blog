@@ -1,7 +1,9 @@
 ---
-title: CPython zipfile module code tracing for zip bomb vulnerability
+title: [CVE-2019-9674 Zip bomb vulnerability in CPython Lib/zipfile.py]
 date: 2021-09-30 16:39:10
 tags:
+- vulnerability
+- python
 ---
 
 # Background

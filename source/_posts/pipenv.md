@@ -1,5 +1,5 @@
 ---
-title: [pipenv]
+title: Pipenv usage
 date: 2020-09-24 14:15:06
 tags:
 - python

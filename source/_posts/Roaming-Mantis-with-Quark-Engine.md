@@ -1,7 +1,9 @@
 ---
 title: Roaming Mantis with Quark-Engine
 date: 2021-09-30 18:02:23
-tags: Android, Malware
+tags:
+- android
+- malware
 ---
 
 # Analyze Roaming Mantis with Quark-Engine
