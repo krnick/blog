@@ -7,55 +7,39 @@ tags:
 - Kali Linux
 ---
 
-前陣子要將 Quark 上傳至 [Kali Linux](https://www.kali.org/)，需要包成一個 Debian 的安裝檔案費了不少力氣，以下紀錄一下該如何打包一個 Python 專案至 Debian 的 .deb 安裝檔案。
-
 [Kali Linux issue 0007121](https://bugs.kali.org/view.php?id=7121)
 
-## Creating the Debian files
+# Kali Linux Release
 
-Debian套件強制規定 debian 目錄下需要有以下四個檔案
+## 1. Prepare your Kali Linux virtual machine to build the Debian package.
 
-* control
-* copyright
-* changelog
-* rules
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+- [Kail Linux image for virtualbox](https://www.kali.org/get-kali/#kali-virtual-machines)
 
-細節可參考 Quark 完成後的 [Debian-目錄](https://github.com/quark-engine/quark-engine/tree/master/debian)
+### Update your kali Linux package source
 
----
-
-### 產生 debian 目錄
-
-使用 `dh_make` 可以自動幫你產生所需的這四個檔案，`quark-engine_21.02.2.orig.tar.gz` 為你的專案壓縮檔案。
-
-```bash=
-dh_make -p quark-engine_21.02.2 -f quark-engine_21.02.2.orig.tar.gz 
-
-rm *.ex *.EX README.* *.docs
-```
-
-## System Requirements
-
-
-更新環境
-
-```bash=
+```bash
 echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
 
 sudo apt-get update
 ```
 
-安裝需要的檔案
-```bash=
+After setting up your virtual machine, you have to install the required packages based on the official documentation on this [website](https://www.kali.org/docs/development/setting-up-packaging-system/).
+
+
+### Install the required dependencies
+
+```bash
 sudo apt install -y packaging-dev apt-file gitk mr
 
 sudo apt-get install -y devscripts debhelper dh-make git-buildpackage sbuild dh-python python3-all
 ```
 
-設定 sbuild，完成後重新登入
+### Set up sbuild and log in again after completion
 
-```bash=
+```
 sudo mkdir -p /srv/chroots/
+
 cd /srv/chroots/
 
 sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
@@ -65,13 +49,22 @@ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-d
 sudo sbuild-adduser $USER
 ```
 
+## 2. Creating the Debian files
 
-## Importing
+The Debian package needs that the following four files are required in the debian directory.
 
-匯入你的專案
+* control
+* copyright
+* changelog
+* rules
 
-```bash=
+[Here](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html) is the official documentation on how to write all four files.
 
+## 3. Importing the Quark project
+
+Please replace the version number you would like to update.
+
+```bash
 mkdir -p ~/kali/packages/quark-engine ~/kali/upstream/
 
 wget https://github.com/quark-engine/quark-engine/archive/refs/tags/v21.4.3.tar.gz  -O ~/kali/upstream/quark-engine_21.4.3.orig.tar.gz
@@ -83,15 +76,43 @@ git init
 gbp import-orig ~/kali/upstream/quark-engine_21.4.3.orig.tar.gz
 ```
 
-## Build Package
 
-產生 `.deb` 檔案
+## 4. Build Package
 
-```bash=
+```bash
 gbp buildpackage --git-builder=sbuild
 ```
 
-## Reference
+Then you will have the Quark `.deb` file if everything goes well.
+
+## 5. Request package upgrade
+
+1. Register [Kali Linux Bug Tracker](https://bugs.kali.org/my_view_page.php)
+
+2. Report an issue
+
+Report an issue by clicking the "Report Issue"
+
+![](https://i.imgur.com/R7fGbSY.png)
+
+3. Fill out the form
+
+Please choose the "Tool upgrade request" option in `category` and "kali-dev" option in `product version` and keep anything else default value.
+
+![](https://i.imgur.com/Wclavqq.png)
+
+The next step is filling out the summary and the description.
+
+4. Attach the .deb file
+
+Upload the `.deb` file you just created earlier.
+
+![](https://i.imgur.com/5Mbu3hf.png)
+
+5. Submit the issue
+
+When everything is all set, you can click "Submit issue".
+
 
 https://www.kali.org/docs/development/public-packaging/
 https://www.kali.org/docs/development/intro-to-packaging-example/

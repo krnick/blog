@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="How to draft a new release on PyPi with Github ActionAfter updating the version from everywhere in the codebase such as __init__.py, docs and debian p"/>
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="JunWei Song&#39; Blog"/>
+        <meta property="og:title" content="How to draft a new release on PyPi with Github Action"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="How to draft a new release on PyPi with Github ActionAfter updating the version from everywhere in the codebase such as __init__.py, docs and debian p"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2021 - JunWei Song&#39; Blog</title>
+    <title>How to draft a new release on PyPi with Github Action - JunWei Song&#39; Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -164,88 +168,83 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2021</h1>
+                <div class="post-heading">
+                    <h1>How to draft a new release on PyPi with Github Action</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2021-10-07
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/python-github-release/">#python, github, release</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2021/10/07/How-to-draft-a-new-release-on-PyPi-with-Github-Action/">
-        <h1 class="post-title archive">
-            How to draft a new release on PyPi with Github Action
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2021-10-07
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2021/09/30/Roaming-Mantis-with-Quark-Engine/">
-        <h1 class="post-title archive">
-            Roaming Mantis with Quark-Engine
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2021-09-30
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="How-to-draft-a-new-release-on-PyPi-with-Github-Action"><a href="#How-to-draft-a-new-release-on-PyPi-with-Github-Action" class="headerlink" title="How to draft a new release on PyPi with Github Action"></a>How to draft a new release on PyPi with Github Action</h1><p>After updating the version from everywhere in the codebase such as <a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine/blob/master/quark/__init__.py"><code>__init__.py</code></a>, <a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine/blob/245c77c1e1dc9599bae1be0a76a13ebe86c58549/docs/source/conf.py#L25"><code>docs</code></a> and <a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine/blob/245c77c1e1dc9599bae1be0a76a13ebe86c58549/debian/control#L20"><code>debian package</code></a>, you can click “Releases” for drafting a new version release.</p>
+<p><img src="https://i.imgur.com/c7JO72j.png"></p>
+<p>After that, you can click the “Draft a new release”.</p>
+<p><img src="https://i.imgur.com/bnApXxl.png"></p>
+<p>The next step is to fill out the version number you want to release, and the changelog from the last release to now.</p>
+<p><img src="https://i.imgur.com/CzMaMTw.png"></p>
+<p>After completing the information for this version, you can click “Publish release” to publish this version.</p>
+<p><img src="https://i.imgur.com/B3DXFpW.png"></p>
+<p>Once this version is released, <a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine/actions/workflows/pythonpublish.yml">Github Action</a> will initiate a process to publish it on PyPi automatically.</p>
+<p><img src="https://i.imgur.com/mbMR7Uo.png"></p>
+<p>:::info<br>Please note that there is a limitation that you cannot upload twice with the same release version number.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2021/09/30/CPython-zipfile-Code-Tracing/">
-        <h1 class="post-title archive">
-            CPython zipfile module code tracing for zip bomb vulnerability
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2021-09-30
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2021/05/03/Debian-Packaging/">
-        <h1 class="post-title archive">
-            Debian Packaging
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2021-05-03
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
