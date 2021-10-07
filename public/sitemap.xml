@@ -67,6 +67,20 @@
 
   
   <url>
+    <loc>https://krnick.github.io/tags/vulnerability/</loc>
+    <lastmod>2021-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/python/</loc>
+    <lastmod>2021-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://krnick.github.io/tags/Debian/</loc>
     <lastmod>2021-10-07</lastmod>
     <changefreq>daily</changefreq>
@@ -88,14 +102,14 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/vulnerability/</loc>
+    <loc>https://krnick.github.io/tags/github/</loc>
     <lastmod>2021-10-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/python/</loc>
+    <loc>https://krnick.github.io/tags/pypi/</loc>
     <lastmod>2021-10-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -110,20 +124,6 @@
   
   <url>
     <loc>https://krnick.github.io/tags/malware/</loc>
-    <lastmod>2021-10-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/github/</loc>
-    <lastmod>2021-10-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/pypi/</loc>
     <lastmod>2021-10-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
