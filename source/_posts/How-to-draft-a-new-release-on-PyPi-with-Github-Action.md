@@ -1,7 +1,10 @@
 ---
 title: How to draft a new release on PyPi with Github Action
 date: 2021-10-07 14:54:14
-tags: python, github, release
+tags:
+- python
+- github
+- pypi
 ---
 
 # How to draft a new release on PyPi with Github Action
