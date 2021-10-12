@@ -13,10 +13,7 @@
     
 
     
-        <meta name="description" content="Kali Linux issue 0007121
-Kali Linux Release1. Prepare your Kali Linux virtual machine to build the Debian package.
-Virtualbox
-Kail Linux image for vir"/>
+        <meta name="description" content="Debian PackagingA while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look th"/>
     
 
     <!--Author-->
@@ -31,10 +28,7 @@ Kail Linux image for vir"/>
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Kali Linux issue 0007121
-Kali Linux Release1. Prepare your Kali Linux virtual machine to build the Debian package.
-Virtualbox
-Kail Linux image for vir"/>
+        <meta property="og:description" content="Debian PackagingA while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look th"/>
     
 
     <!--Open Graph Site Name-->
@@ -226,19 +220,20 @@ Kail Linux image for vir"/>
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p><a target="_blank" rel="noopener" href="https://bugs.kali.org/view.php?id=7121">Kali Linux issue 0007121</a></p>
-<h1 id="Kali-Linux-Release"><a href="#Kali-Linux-Release" class="headerlink" title="Kali Linux Release"></a>Kali Linux Release</h1><h2 id="1-Prepare-your-Kali-Linux-virtual-machine-to-build-the-Debian-package"><a href="#1-Prepare-your-Kali-Linux-virtual-machine-to-build-the-Debian-package" class="headerlink" title="1. Prepare your Kali Linux virtual machine to build the Debian package."></a>1. Prepare your Kali Linux virtual machine to build the Debian package.</h2><ul>
+                <h1 id="Debian-Packaging"><a href="#Debian-Packaging" class="headerlink" title="Debian Packaging"></a>Debian Packaging</h1><p>A while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look the link below.</p>
+<p><a target="_blank" rel="noopener" href="https://bugs.kali.org/view.php?id=7121">Kali Linux issue 0007121</a></p>
+<h2 id="Kali-Linux-Release"><a href="#Kali-Linux-Release" class="headerlink" title="Kali Linux Release"></a>Kali Linux Release</h2><h3 id="1-Prepare-your-Kali-Linux-virtual-machine-to-build-the-Debian-package"><a href="#1-Prepare-your-Kali-Linux-virtual-machine-to-build-the-Debian-package" class="headerlink" title="1. Prepare your Kali Linux virtual machine to build the Debian package."></a>1. Prepare your Kali Linux virtual machine to build the Debian package.</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.kali.org/get-kali/#kali-virtual-machines">Kail Linux image for virtualbox</a></li>
 </ul>
-<h3 id="Update-your-kali-Linux-package-source"><a href="#Update-your-kali-Linux-package-source" class="headerlink" title="Update your kali Linux package source"></a>Update your kali Linux package source</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb http://http.kali.org/kali kali-rolling main non-free contrib&quot;</span> | sudo tee /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<h4 id="Update-your-kali-Linux-package-source"><a href="#Update-your-kali-Linux-package-source" class="headerlink" title="Update your kali Linux package source"></a>Update your kali Linux package source</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb http://http.kali.org/kali kali-rolling main non-free contrib&quot;</span> | sudo tee /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
 <p>After setting up your virtual machine, you have to install the required packages based on the official documentation on this <a target="_blank" rel="noopener" href="https://www.kali.org/docs/development/setting-up-packaging-system/">website</a>.</p>
-<h3 id="Install-the-required-dependencies"><a href="#Install-the-required-dependencies" class="headerlink" title="Install the required dependencies"></a>Install the required dependencies</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y packaging-dev apt-file gitk mr</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y devscripts debhelper dh-make git-buildpackage sbuild dh-python python3-all</span><br></pre></td></tr></table></figure>
+<h4 id="Install-the-required-dependencies"><a href="#Install-the-required-dependencies" class="headerlink" title="Install the required dependencies"></a>Install the required dependencies</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y packaging-dev apt-file gitk mr</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y devscripts debhelper dh-make git-buildpackage sbuild dh-python python3-all</span><br></pre></td></tr></table></figure>
 
-<h3 id="Set-up-sbuild-and-log-in-again-after-completion"><a href="#Set-up-sbuild-and-log-in-again-after-completion" class="headerlink" title="Set up sbuild and log in again after completion"></a>Set up sbuild and log in again after completion</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;srv&#x2F;chroots&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;srv&#x2F;chroots&#x2F;</span><br><span class="line"></span><br><span class="line">sudo sbuild-createchroot --keyring&#x3D;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;kali-archive-keyring.gpg --arch&#x3D;amd64 --components&#x3D;main,contrib,non-free --include&#x3D;kali-archive-keyring kali-dev kali-dev-amd64-sbuild http:&#x2F;&#x2F;http.kali.org&#x2F;kali</span><br><span class="line"></span><br><span class="line">echo &quot;source-root-groups&#x3D;root,sbuild&quot; | sudo tee -a &#x2F;etc&#x2F;schroot&#x2F;chroot.d&#x2F;kali-dev-amd64-sbuild*</span><br><span class="line"></span><br><span class="line">sudo sbuild-adduser $USER</span><br></pre></td></tr></table></figure>
+<h4 id="Set-up-sbuild-and-log-in-again-after-completion"><a href="#Set-up-sbuild-and-log-in-again-after-completion" class="headerlink" title="Set up sbuild and log in again after completion"></a>Set up sbuild and log in again after completion</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;srv&#x2F;chroots&#x2F;</span><br><span class="line"></span><br><span class="line">cd &#x2F;srv&#x2F;chroots&#x2F;</span><br><span class="line"></span><br><span class="line">sudo sbuild-createchroot --keyring&#x3D;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;kali-archive-keyring.gpg --arch&#x3D;amd64 --components&#x3D;main,contrib,non-free --include&#x3D;kali-archive-keyring kali-dev kali-dev-amd64-sbuild http:&#x2F;&#x2F;http.kali.org&#x2F;kali</span><br><span class="line"></span><br><span class="line">echo &quot;source-root-groups&#x3D;root,sbuild&quot; | sudo tee -a &#x2F;etc&#x2F;schroot&#x2F;chroot.d&#x2F;kali-dev-amd64-sbuild*</span><br><span class="line"></span><br><span class="line">sudo sbuild-adduser $USER</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-Creating-the-Debian-files"><a href="#2-Creating-the-Debian-files" class="headerlink" title="2. Creating the Debian files"></a>2. Creating the Debian files</h2><p>The Debian package needs that the following four files are required in the debian directory.</p>
+<h3 id="2-Creating-the-Debian-files"><a href="#2-Creating-the-Debian-files" class="headerlink" title="2. Creating the Debian files"></a>2. Creating the Debian files</h3><p>The Debian package needs that the following four files are required in the debian directory.</p>
 <ul>
 <li>control</li>
 <li>copyright</li>
@@ -246,14 +241,14 @@ Kail Linux image for vir"/>
 <li>rules</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://www.debian.org/doc/manuals/maint-guide/dreq.en.html">Here</a> is the official documentation on how to write all four files.</p>
-<h2 id="3-Importing-the-Quark-project"><a href="#3-Importing-the-Quark-project" class="headerlink" title="3. Importing the Quark project"></a>3. Importing the Quark project</h2><p>Please replace the version number you would like to update.</p>
+<h3 id="3-Importing-the-Quark-project"><a href="#3-Importing-the-Quark-project" class="headerlink" title="3. Importing the Quark project"></a>3. Importing the Quark project</h3><p>Please replace the version number you would like to update.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/kali/packages/quark-engine ~/kali/upstream/</span><br><span class="line"></span><br><span class="line">wget https://github.com/quark-engine/quark-engine/archive/refs/tags/v21.4.3.tar.gz  -O ~/kali/upstream/quark-engine_21.4.3.orig.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /home/kali/kali/packages/quark-engine</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">gbp import-orig ~/kali/upstream/quark-engine_21.4.3.orig.tar.gz</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="4-Build-Package"><a href="#4-Build-Package" class="headerlink" title="4. Build Package"></a>4. Build Package</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gbp buildpackage --git-builder=sbuild</span><br></pre></td></tr></table></figure>
+<h3 id="4-Build-Package"><a href="#4-Build-Package" class="headerlink" title="4. Build Package"></a>4. Build Package</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gbp buildpackage --git-builder=sbuild</span><br></pre></td></tr></table></figure>
 
 <p>Then you will have the Quark <code>.deb</code> file if everything goes well.</p>
-<h2 id="5-Request-package-upgrade"><a href="#5-Request-package-upgrade" class="headerlink" title="5. Request package upgrade"></a>5. Request package upgrade</h2><ol>
+<h3 id="5-Request-package-upgrade"><a href="#5-Request-package-upgrade" class="headerlink" title="5. Request package upgrade"></a>5. Request package upgrade</h3><ol>
 <li><p>Register <a target="_blank" rel="noopener" href="https://bugs.kali.org/my_view_page.php">Kali Linux Bug Tracker</a></p>
 </li>
 <li><p>Report an issue</p>

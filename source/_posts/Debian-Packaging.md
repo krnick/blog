@@ -7,16 +7,21 @@ tags:
 - Kali Linux
 ---
 
+# Debian Packaging
+
+A while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look the link below.
+
 [Kali Linux issue 0007121](https://bugs.kali.org/view.php?id=7121)
 
-# Kali Linux Release
+## Kali Linux Release
 
-## 1. Prepare your Kali Linux virtual machine to build the Debian package.
+### 1. Prepare your Kali Linux virtual machine to build the Debian package.
 
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - [Kail Linux image for virtualbox](https://www.kali.org/get-kali/#kali-virtual-machines)
 
-### Update your kali Linux package source
+
+#### Update your kali Linux package source
 
 ```bash
 echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
@@ -27,7 +32,7 @@ sudo apt-get update
 After setting up your virtual machine, you have to install the required packages based on the official documentation on this [website](https://www.kali.org/docs/development/setting-up-packaging-system/).
 
 
-### Install the required dependencies
+#### Install the required dependencies
 
 ```bash
 sudo apt install -y packaging-dev apt-file gitk mr
@@ -35,7 +40,7 @@ sudo apt install -y packaging-dev apt-file gitk mr
 sudo apt-get install -y devscripts debhelper dh-make git-buildpackage sbuild dh-python python3-all
 ```
 
-### Set up sbuild and log in again after completion
+#### Set up sbuild and log in again after completion
 
 ```
 sudo mkdir -p /srv/chroots/
@@ -49,7 +54,7 @@ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-d
 sudo sbuild-adduser $USER
 ```
 
-## 2. Creating the Debian files
+### 2. Creating the Debian files
 
 The Debian package needs that the following four files are required in the debian directory.
 
@@ -60,7 +65,7 @@ The Debian package needs that the following four files are required in the debia
 
 [Here](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html) is the official documentation on how to write all four files.
 
-## 3. Importing the Quark project
+### 3. Importing the Quark project
 
 Please replace the version number you would like to update.
 
@@ -77,7 +82,7 @@ gbp import-orig ~/kali/upstream/quark-engine_21.4.3.orig.tar.gz
 ```
 
 
-## 4. Build Package
+### 4. Build Package
 
 ```bash
 gbp buildpackage --git-builder=sbuild
@@ -85,7 +90,7 @@ gbp buildpackage --git-builder=sbuild
 
 Then you will have the Quark `.deb` file if everything goes well.
 
-## 5. Request package upgrade
+### 5. Request package upgrade
 
 1. Register [Kali Linux Bug Tracker](https://bugs.kali.org/my_view_page.php)
 
