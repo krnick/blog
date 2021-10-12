@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/2021/10/07/How-to-draft-a-new-release-on-PyPi-with-Github-Action/</loc>
+    <loc>https://krnick.github.io/2021/09/30/CPython-zipfile-Code-Tracing/</loc>
     
     <lastmod>2021-10-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://krnick.github.io/2021/09/30/CPython-zipfile-Code-Tracing/</loc>
+    <loc>https://krnick.github.io/2021/10/07/How-to-draft-a-new-release-on-PyPi-with-Github-Action/</loc>
     
     <lastmod>2021-10-12</lastmod>
     
@@ -72,6 +72,27 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://krnick.github.io/tags/Android/</loc>
+    <lastmod>2021-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/vulnerability/</loc>
+    <lastmod>2021-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/python/</loc>
+    <lastmod>2021-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>https://krnick.github.io/tags/Debian/</loc>
@@ -95,13 +116,6 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/python/</loc>
-    <lastmod>2021-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://krnick.github.io/tags/github/</loc>
     <lastmod>2021-10-12</lastmod>
     <changefreq>daily</changefreq>
@@ -110,20 +124,6 @@
   
   <url>
     <loc>https://krnick.github.io/tags/pypi/</loc>
-    <lastmod>2021-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/vulnerability/</loc>
-    <lastmod>2021-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/Android/</loc>
     <lastmod>2021-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

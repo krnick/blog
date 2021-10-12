@@ -9,7 +9,7 @@ tags:
 
 # Debian Packaging
 
-A while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look the link below.
+A while ago, I would like to package Quark to Debian package since we want to make Quark be part of Kali Linux. You can have a look at the link below.
 
 [Kali Linux issue 0007121](https://bugs.kali.org/view.php?id=7121)
 
@@ -118,7 +118,7 @@ Upload the `.deb` file you just created earlier.
 
 When everything is all set, you can click "Submit issue".
 
-
+Reference
 https://www.kali.org/docs/development/public-packaging/
 https://www.kali.org/docs/development/intro-to-packaging-example/
 https://www.kali.org/docs/development/setting-up-packaging-system/
