@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://krnick.github.io/about/index.html</loc>
+    
+    <lastmod>2021-10-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://krnick.github.io/2021/05/03/Debian-Packaging/</loc>
     
     <lastmod>2021-10-12</lastmod>
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://krnick.github.io/2020/09/24/pipenv/</loc>
-    
-    <lastmod>2021-10-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/about/index.html</loc>
     
     <lastmod>2021-10-12</lastmod>
     
@@ -74,13 +74,6 @@
 
   
   <url>
-    <loc>https://krnick.github.io/tags/Android/</loc>
-    <lastmod>2021-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://krnick.github.io/tags/vulnerability/</loc>
     <lastmod>2021-10-12</lastmod>
     <changefreq>daily</changefreq>
@@ -110,6 +103,13 @@
   
   <url>
     <loc>https://krnick.github.io/tags/Kali-Linux/</loc>
+    <lastmod>2021-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/Android/</loc>
     <lastmod>2021-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

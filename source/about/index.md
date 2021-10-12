@@ -12,8 +12,8 @@ sidebar: custom
 
 JunWei is a security researcher and open-source enthusiast from Taiwan. A paranoid Pythonista and CPython contributor who now focuses on Android reverse engineering and malware analysis. And as a member of the PyCon Taiwan Program Committee, previously presented at Black Hat, DEFCON, HITB, ROOTCON, GrayHat, PyCon Europe/TW/KR/MY/IN. He’s the co-founder of Quark-Engine and the Quark package maintainer on Kali Linux, leading Quark to participate in the GSoC under the Honeynet Project since 2021.
 
-Google summer of code 2021 [Mentor](https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark)
-PyCon Taiwan 2022 Program Chair
+Google Summer of Code 2021 [Mentor](https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark)
+[PyCon Taiwan 2022 Program Chair](https://tw.pycon.org/)
 
 [My Previous Talks](https://github.com/krnick/talks)
 
