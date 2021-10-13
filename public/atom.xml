@@ -6,7 +6,7 @@
   <link href="https://krnick.github.io/atom.xml" rel="self"/>
   
   <link href="https://krnick.github.io/"/>
-  <updated>2021-10-13T10:10:50.037Z</updated>
+  <updated>2021-10-13T10:11:34.120Z</updated>
   <id>https://krnick.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android Malware Analysis - Asacub</title>
+    <title>\[Android Malware Analysis - Asacub</title>
     <link href="https://krnick.github.io/2021/10/13/Android-Malware-Analysis-Asacub/"/>
     <id>https://krnick.github.io/2021/10/13/Android-Malware-Analysis-Asacub/</id>
     <published>2021-10-13T10:09:01.000Z</published>
-    <updated>2021-10-13T10:10:50.037Z</updated>
+    <updated>2021-10-13T10:11:34.120Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Malware-Analysis-Asacub"><a href="#Malware-Analysis-Asacub" class="headerlink" title="[Malware Analysis]: Asacub"></a>[Malware Analysis]: Asacub</h1>]]></content>
     
