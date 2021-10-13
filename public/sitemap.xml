@@ -16,6 +16,13 @@
   </url>
   
   <url>
+    <loc>https://krnick.github.io/tags/index.html</loc>
+    
+    <lastmod>2021-10-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://krnick.github.io/about/index.html</loc>
     
     <lastmod>2021-10-13</lastmod>
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://krnick.github.io/categories/index.html</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/index.html</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/2021/09/30/CPython-zipfile-Code-Tracing/</loc>
+    <loc>https://krnick.github.io/2021/05/03/Debian-Packaging/</loc>
     
     <lastmod>2021-10-13</lastmod>
     
   </url>
   
   <url>
-    <loc>https://krnick.github.io/2021/05/03/Debian-Packaging/</loc>
+    <loc>https://krnick.github.io/2021/09/30/CPython-zipfile-Code-Tracing/</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -88,7 +88,21 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/Malware/</loc>
+    <loc>https://krnick.github.io/tags/Debian/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/Linux/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/Kali-Linux/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -109,21 +123,7 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/Debian/</loc>
-    <lastmod>2021-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/Linux/</loc>
-    <lastmod>2021-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/Kali-Linux/</loc>
+    <loc>https://krnick.github.io/tags/Malware/</loc>
     <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
