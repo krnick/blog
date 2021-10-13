@@ -2,8 +2,8 @@
 title: Android Malware Analysis - Roaming Mantis
 date: 2021-09-30 18:02:23
 tags:
-- android
-- malware
+- Android
+- Malware
 ---
 
 # Analyze Roaming Mantis with Quark-Engine
