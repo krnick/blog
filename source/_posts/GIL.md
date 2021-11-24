@@ -41,9 +41,9 @@ The reason why multithreading is the last one is because of the GIL, even if the
 
 There are many ways to overcome this obstacle. Here are some solutions to bypass the GIL:
 
-Use another interpreter to execute Python, such as PyPy, Jython.
-Use multi-processes with pools to perform CPU-bound tasks.
-Use C extensions to write the key block that you really care about.
+1. Use another interpreter to execute Python, such as PyPy, Jython.
+2. Use multi-processes with pools to perform CPU-bound tasks.
+3. Use C extensions to write the key block that you really care about.
 
 So now, let's deep dive into the third solution since the first two are easy to figure out.
 

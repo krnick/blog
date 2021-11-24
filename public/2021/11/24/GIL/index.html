@@ -221,7 +221,11 @@
 <p>Multi-process-pool &gt; Multi-process &gt; Single process &gt; Multi-thread</p>
 <p>The reason why multithreading is the last one is because of the GIL, even if there are many threads, tasks in Python can still only run on a single thread. In addition, context switching will also slow down the program and cause more waste of resources.</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>There are many ways to overcome this obstacle. Here are some solutions to bypass the GIL:</p>
-<p>Use another interpreter to execute Python, such as PyPy, Jython.<br>Use multi-processes with pools to perform CPU-bound tasks.<br>Use C extensions to write the key block that you really care about.</p>
+<ol>
+<li>Use another interpreter to execute Python, such as PyPy, Jython.</li>
+<li>Use multi-processes with pools to perform CPU-bound tasks.</li>
+<li>Use C extensions to write the key block that you really care about.</li>
+</ol>
 <p>So now, let’s deep dive into the third solution since the first two are easy to figure out.</p>
 <h2 id="C-extensions"><a href="#C-extensions" class="headerlink" title="C extensions"></a>C extensions</h2><p>If we want to write the C extension, we can use the <code>ctypes</code> module to load our c program dynamically. For example, if we want to call a function <code>say_hello</code> look like below:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">say_hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;This is a function call from C Language\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
