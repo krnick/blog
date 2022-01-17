@@ -10,9 +10,37 @@ sidebar: custom
 
 #### Who am I
 
-JunWei is a security researcher and open-source enthusiast from Taiwan. A paranoid Pythonista and CPython contributor who now focuses on Android reverse engineering and malware analysis. And as a member of the PyCon Taiwan Program Committee, previously presented at Black Hat, DEFCON, HITB, ROOTCON, GrayHat, PyCon Europe/TW/KR/MY/IN. He’s the co-founder of Quark-Engine and the Quark package maintainer on Kali Linux, leading Quark to participate in the GSoC under the Honeynet Project since 2021.
+JunWei is a security researcher in Taiwan, mainly focusing on malware analysis, and is also an enthusiast who is highly involved in the open-source security community.
 
-Google Summer of Code 2021 [Mentor](https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark)
+Experienced in Python programming and Android malware forensics and detection. I am also the co-founder of the well-known open-source project, Quark-Engine, an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a minute.
+
+Also, as a volunteer for the PyCon TW program chair, I helped organize the PyCon conference. I also gave talks at security conferences like Black Hat, DEFCON, HITB, ROOTCON.
+
+<a href="https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark">
+    <img alt="GSoC" src="https://img.shields.io/badge/Google%20Summer%20of%20Code-Mentor-red">
+</a>
+
+<a href="http://pkg.kali.org/pkg/quark-engine">
+    <img alt="Kali Linux" src="https://img.shields.io/badge/Kali%20Linux-Package%20Maintainer-critical">
+</a>
+
+<br/>
+
+<a href="https://github.com/python/cpython/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
+    <img alt="CPython" src="https://img.shields.io/badge/CPython-Contributor-blue">
+</a>
+
+<a href="https://github.com/androguard/androguard/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
+    <img alt="Androguard" src="https://img.shields.io/badge/Androguard-Contributor-orange">
+</a>
+
+<a href="https://github.com/Cisco-Talos/clamav/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
+    <img alt="ClamAV" src="https://img.shields.io/badge/ClamAV-Contributor-green">
+</a>
+
+<a href="https://github.com/rizinorg/rizin/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
+    <img alt="Rizin" src="https://img.shields.io/badge/Rizin-Contributor-brightgreen">
+</a>
 
 [My Previous Talks](https://github.com/krnick/talks)
 
