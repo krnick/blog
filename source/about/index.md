@@ -10,7 +10,7 @@ sidebar: custom
 
 #### Who am I
 
-JunWei is a security researcher in Taiwan, mainly focusing on malware analysis, and is also an enthusiast who is highly involved in the open-source security community.
+JunWei is a security researcher from Taiwan, mainly focusing on malware analysis, and is also an enthusiast who is highly involved in the open-source security community.
 
 Experienced in Python programming and Android malware forensics and detection. I am also the co-founder of the well-known open-source project, Quark-Engine, an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a minute.
 
