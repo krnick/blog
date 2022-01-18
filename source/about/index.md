@@ -14,7 +14,7 @@ JunWei is a security researcher from Taiwan, mainly focusing on malware analysis
 
 Experienced in Python programming and Android malware forensics and detection. I am also the co-founder of the well-known open-source project, Quark-Engine, an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a minute.
 
-Also, as a volunteer for the PyCon TW program chair, I helped organize the PyCon conference. I also gave talks at security conferences like Black Hat, DEFCON, HITB, ROOTCON.
+Also, as a volunteer for the PyCon TW Program Chair, I helped organize the PyCon conference. I also gave talks at security conferences like Black Hat, DEFCON, HITB, ROOTCON.
 
 <a href="https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark">
     <img alt="GSoC" src="https://img.shields.io/badge/Google%20Summer%20of%20Code-Mentor-red">
