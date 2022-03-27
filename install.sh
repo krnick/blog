@@ -1,4 +1,4 @@
-#brew install npm
+brew install npm
 
 npm install -g hexo-cli
 
