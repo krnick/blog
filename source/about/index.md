@@ -5,51 +5,35 @@ layout: about
 comments: false
 sidebar: custom
 ---
-
 ### Hi there 👋
 
 #### Who am I
 
-JunWei is a security researcher from Taiwan with a passion for malware analysis and building tools to detect malware and threats in innovative ways. Also, I enjoy contributing to the open-source security community, having made a tool accepted by Kali Linux, and leading the GSoC mentorship program under the Honeynet project in 2021.
+JunWei is a security researcher from Taiwan with a passion for malware analysis and building tools to detect malware and threats in innovative ways, and working on sandboxing for Android platforms right now. Also, I enjoy contributing to the open-source security community, having made a tool accepted by Kali Linux, and leading the GSoC mentorship program under the Honeynet project in 2021.
 
-Experienced in Python programming and Android malware forensics and detection. I am also the creator of the well-known open-source project, Quark-Engine, an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a few seconds.
+Experienced in Python programming and Android malware forensics and detection. I am also the creator of the well-known open-source project, [Quark-Engine](https://github.com/quark-engine/quark-engine), an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a few seconds.
 
 Also, as a volunteer for the PyCon TW program chair, I helped organize the PyCon conference. I also gave talks at top-tier security conferences like Black Hat, DEFCON, HITB, and ROOTCON.
 
-<a href="https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas#quark">
-    <img alt="GSoC" src="https://img.shields.io/badge/Google%20Summer%20of%20Code-Mentor-red">
-</a>
+#### Talks
 
-<a href="http://pkg.kali.org/pkg/quark-engine">
-    <img alt="Kali Linux" src="https://img.shields.io/badge/Kali%20Linux-Package%20Maintainer-critical">
-</a>
+- 🌱 [My Previous Talks](https://github.com/krnick/talks)
 
-<br/>
+#### Contact
 
-<a href="https://github.com/python/cpython/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
-    <img alt="CPython" src="https://img.shields.io/badge/CPython-Contributor-blue">
-</a>
+- 📫 How to reach me:
+    - junwei.song1994@gmail.com either chitchat or business collaboration is welcome
+    - junwei@python.tw for PyCon APAC/TW conference stuff :D
 
-<a href="https://github.com/androguard/androguard/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
-    <img alt="Androguard" src="https://img.shields.io/badge/Androguard-Contributor-orange">
-</a>
-
-<a href="https://github.com/Cisco-Talos/clamav/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
-    <img alt="ClamAV" src="https://img.shields.io/badge/ClamAV-Contributor-green">
-</a>
-
-<a href="https://github.com/rizinorg/rizin/pulls?q=is%3Apr+author%3Akrnick+is%3Aclosed">
-    <img alt="Rizin" src="https://img.shields.io/badge/Rizin-Contributor-brightgreen">
-</a>
-
-[My Previous Talks](https://github.com/krnick/talks)
+[Resume (English Version)](https://www.cakeresume.com/sungboss2004)
 
 The projects I am currently working on:
 
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=quark-engine&repo=quark-engine)](https://github.com/quark-engine/quark-engine)
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=malcube&repo=malcube)](https://github.com/malcube/malcube)
 
-![JunWei Song's github stats](https://github-readme-stats.vercel.app/api?username=krnick&theme=blue-green&show_icons=true)
+![JunWei Song's Github stats](https://github-readme-stats.vercel.app/api?username=krnick&theme=blue-green&show_icons=true)
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=krnick.krnick)
 
-[Resume (English Version)](https://www.cakeresume.com/sungboss2004)
+
+
