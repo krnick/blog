@@ -6,7 +6,7 @@
   <link href="https://krnick.github.io/atom.xml" rel="self"/>
   
   <link href="https://krnick.github.io/"/>
-  <updated>2022-04-22T07:07:21.392Z</updated>
+  <updated>2022-04-22T07:11:57.838Z</updated>
   <id>https://krnick.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyCharm Debug</title>
+    <link href="https://krnick.github.io/2022/04/22/PyCharm-Debug/"/>
+    <id>https://krnick.github.io/2022/04/22/PyCharm-Debug/</id>
+    <published>2022-04-22T07:11:48.000Z</published>
+    <updated>2022-04-22T07:11:57.838Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PyCharm-Debug"><a href="#PyCharm-Debug" class="headerlink" title="PyCharm Debug"></a>PyCharm Debug</h1><ul><li>step over 單步執行</li></ul><p>在函數內遇到子函數不會執行</p><ul><li>steop into 單步執行</li></ul><p>在函數內遇到函數會跳進去</p><ul><li>step into my code</li></ul><p>遇到子函數就進入並且繼續單步執行，不會進入到原始碼中</p><ul><li>step out 跳出一個函數</li></ul><p>如果進到一個函數內，不想看了，即可按這個</p><p>以上四個功能，就是最常用的功能，一般操作步驟就是，設置好斷點，debug運行，然後F8 單步調試，遇到想進入的函數F7 進去，想出來在shift + F8，跳過不想看的地方，直接設置下一個斷點，然後F9 過去。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;PyCharm-Debug&quot;&gt;&lt;a href=&quot;#PyCharm-Debug&quot; class=&quot;headerlink&quot; title=&quot;PyCharm Debug&quot;&gt;&lt;/a&gt;PyCharm Debug&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;step over 單步執行&lt;/li&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Frida tips</title>
