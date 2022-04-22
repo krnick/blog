@@ -13,7 +13,7 @@
     
 
     
-        <meta name="description" content="Hi there 👋"/>
+        <meta name="description" content="Frida tips for dynamically calling Java class methods in AndroidAndroid example code snippet1234567891011121314151617181920212223242526272829303132pac"/>
     
 
     <!--Author-->
@@ -23,12 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="About"/>
+        <meta property="og:title" content="Frida tips"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Hi there 👋"/>
+        <meta property="og:description" content="Frida tips for dynamically calling Java class methods in AndroidAndroid example code snippet1234567891011121314151617181920212223242526272829303132pac"/>
     
 
     <!--Open Graph Site Name-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>About - JunWei Song&#39; Blog</title>
+    <title>Frida tips - JunWei Song&#39; Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -170,11 +170,7 @@
 </nav>
 
     <!-- Main Content -->
-    
-
-
-    <section class="main">
-        <!-- Page Header -->
+    <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
@@ -182,7 +178,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>About</h1>
+                    <h1>Frida tips</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -210,24 +206,13 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3 id="Hi-there-👋"><a href="#Hi-there-👋" class="headerlink" title="Hi there 👋"></a>Hi there 👋</h3><h4 id="Who-am-I"><a href="#Who-am-I" class="headerlink" title="Who am I"></a>Who am I</h4><p>JunWei is a security researcher from Taiwan with a passion for malware analysis and building tools to detect malware and threats in innovative ways, and working on sandboxing for Android platforms right now. Also, I enjoy contributing to the open-source security community, having made a tool accepted by Kali Linux, and leading the GSoC mentorship program under the Honeynet project in 2021.</p>
-<p>Experienced in Python programming and Android malware forensics and detection. I am also the creator of the well-known open-source project, <a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine">Quark-Engine</a>, an Android malware scoring tool that can help malware analysts speed up the malware analysis process and get an overview of the malicious behavior inside malware within a few seconds.</p>
-<p>Also, as a volunteer for the PyCon TW program chair, I helped organize the PyCon conference. I also gave talks at top-tier security conferences like Black Hat, DEFCON, HITB, and ROOTCON.</p>
-<h4 id="Talks"><a href="#Talks" class="headerlink" title="Talks"></a>Talks</h4><ul>
-<li>🌱 <a target="_blank" rel="noopener" href="https://github.com/krnick/talks">My Previous Talks</a></li>
-</ul>
-<h4 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h4><ul>
-<li>📫 How to reach me:<ul>
-<li><a href="mailto:&#106;&#117;&#x6e;&#119;&#x65;&#105;&#x2e;&#115;&#111;&#x6e;&#x67;&#49;&#57;&#x39;&#x34;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#106;&#117;&#x6e;&#119;&#x65;&#105;&#x2e;&#115;&#111;&#x6e;&#x67;&#49;&#57;&#x39;&#x34;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a> either chitchat or business collaboration is welcome</li>
-<li><a href="mailto:&#x6a;&#117;&#x6e;&#119;&#101;&#x69;&#64;&#x70;&#121;&#x74;&#104;&#x6f;&#x6e;&#x2e;&#x74;&#119;">&#x6a;&#117;&#x6e;&#119;&#101;&#x69;&#64;&#x70;&#121;&#x74;&#104;&#x6f;&#x6e;&#x2e;&#x74;&#119;</a> for PyCon APAC&#x2F;TW conference stuff :D</li>
-</ul>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.cakeresume.com/sungboss2004">Resume (English Version)</a></p>
-<p>The projects I am currently working on:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/malcube/malcube"><img src="https://github-readme-stats.vercel.app/api/pin/?username=malcube&repo=malcube" alt="ReadMe Card"></a></p>
-<p><img src="https://github-readme-stats.vercel.app/api?username=krnick&theme=blue-green&show_icons=true" alt="JunWei Song&#39;s Github stats"></p>
-<p><img src="https://visitor-badge.laobi.icu/badge?page_id=krnick.krnick" alt="visitors"></p>
+                <h1 id="Frida-tips-for-dynamically-calling-Java-class-methods-in-Android"><a href="#Frida-tips-for-dynamically-calling-Java-class-methods-in-Android" class="headerlink" title="Frida tips for dynamically calling Java class methods in Android"></a>Frida tips for dynamically calling Java class methods in Android</h1><h2 id="Android-example-code-snippet"><a href="#Android-example-code-snippet" class="headerlink" title="Android example code snippet"></a>Android example code snippet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Log.i(<span class="string">&quot;Foo&quot;</span>, <span class="string">&quot;Called by frida&quot;</span>);</span><br><span class="line">        Log.i(<span class="string">&quot;Foo&quot;</span>, String.valueOf(num1 + num2));</span><br><span class="line">        <span class="keyword">return</span> num1 + num2;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Frida-Javascript"><a href="#Frida-Javascript" class="headerlink" title="Frida Javascript"></a>Frida Javascript</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Android class method invocation&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> instance = <span class="title class_">Java</span>.<span class="title function_">use</span>(<span class="string">&quot;com.example.test.Foo&quot;</span>).$new();</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(instance.<span class="title function_">sum</span>(<span class="number">9</span>,<span class="number">9</span>));</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(instance.<span class="title function_">sum</span>(<span class="number">3</span>,<span class="number">6</span>));</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(instance.<span class="title function_">sum</span>(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Command-line"><a href="#Command-line" class="headerlink" title="Command-line"></a>Command-line</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida -U -f com.example.test -l test.js --no-pause</span><br></pre></td></tr></table></figure>
+
+
 
 
                 
@@ -244,12 +229,6 @@
         </div>
     </div>
 </article>
-    </section>
-
-
-
-
-
 
     <!-- Footer -->
     <hr />
