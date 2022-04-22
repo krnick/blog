@@ -6,7 +6,7 @@
   <link href="https://krnick.github.io/atom.xml" rel="self"/>
   
   <link href="https://krnick.github.io/"/>
-  <updated>2022-04-21T16:41:48.937Z</updated>
+  <updated>2022-04-22T06:57:21.071Z</updated>
   <id>https://krnick.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github Bot</title>
+    <link href="https://krnick.github.io/2022/04/22/Github-Bot/"/>
+    <id>https://krnick.github.io/2022/04/22/Github-Bot/</id>
+    <published>2022-04-22T06:56:57.000Z</published>
+    <updated>2022-04-22T06:57:21.071Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Github-Bot"><a href="#Github-Bot" class="headerlink" title="Github Bot"></a>Github Bot</h1><p>Register <a href="https://signup.heroku.com/">Heroku</a></p><h2 id="Local-setting"><a href="#Local-setting" class="headerlink" title="Local setting"></a>Local setting</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gidgethub</span><br></pre></td></tr></table></figure><p>get your Github Token</p><p>In Unix &#x2F; Mac OS:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export GH_AUTH=your token</span><br></pre></td></tr></table></figure><h2 id="Local-test"><a href="#Local-test" class="headerlink" title="Local test"></a>Local test</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> aiohttp</span><br><span class="line"><span class="keyword">from</span> gidgethub.aiohttp <span class="keyword">import</span> GitHubAPI</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">async</span> <span class="keyword">with</span> aiohttp.ClientSession() <span class="keyword">as</span> session:</span><br><span class="line">       gh = GitHubAPI(session, <span class="string">&quot;krnick&quot;</span>, oauth_token=os.getenv(<span class="string">&quot;GH_AUTH&quot;</span>))</span><br><span class="line">       </span><br><span class="line">       <span class="comment"># 開啟新的 issue</span></span><br><span class="line">       <span class="keyword">await</span> gh.post(<span class="string">&#x27;/repos/krnick/Github-Bot/issues&#x27;</span>,</span><br><span class="line">             data=&#123;</span><br><span class="line">                 <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;Hello Nick&#x27;</span>,</span><br><span class="line">                 <span class="string">&#x27;body&#x27;</span>: <span class="string">&#x27;This is github bot from JunWei&#x27;</span>,</span><br><span class="line">             &#125;)</span><br><span class="line">             </span><br><span class="line">             </span><br><span class="line">        <span class="comment"># 關閉 issue</span></span><br><span class="line">       <span class="keyword">await</span> gh.patch(<span class="string">&#x27;/repos/krnick/Github-Bot/issues/1&#x27;</span>,</span><br><span class="line">             data=&#123;<span class="string">&#x27;state&#x27;</span>: <span class="string">&#x27;closed&#x27;</span>&#125;,</span><br><span class="line">             )</span><br><span class="line"></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(main())</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><p>create a new APP<br><img src="https://i.imgur.com/gzBhd98.png"><br>auth<br><img src="https://i.imgur.com/JBnDaeP.png"><br>connect Github<br><img src="https://i.imgur.com/yGLo7zQ.png"></p><p><img src="https://i.imgur.com/Ni8AacE.png"></p><p><img src="https://i.imgur.com/P2iA4fc.jpg"><br><img src="https://i.imgur.com/KNm6cJ5.png"></p><hr><p>Creat a new webhook at the repo you want to build</p><p><img src="https://i.imgur.com/MpcbHjw.png"><br><img src="https://i.imgur.com/jhyt9Zj.png"><br><img src="https://i.imgur.com/FyljvND.png"></p><p>Set your key at Heroku</p><p><img src="https://i.imgur.com/cyWVRKa.png"></p><p><img src="https://i.imgur.com/CMCeenL.png"></p><p>GH_AUTH</p><p>GH_SECRET</p><h2 id="typo-check-repos-example"><a href="#typo-check-repos-example" class="headerlink" title="typo check repos example"></a>typo check repos example</h2><p><img src="https://i.imgur.com/1LdIE7z.png"><br><img src="https://i.imgur.com/zUQiEZn.png"><br><img src="https://i.imgur.com/7G8Zg58.png"><br><img src="https://i.imgur.com/wMZShV5.png"><br><img src="https://i.imgur.com/PtDjJze.png"><br><img src="https://i.imgur.com/DPPEXv2.png"><br><img src="https://i.imgur.com/AgmG33A.png"></p><h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p><a href="https://github-bot-tutorial.readthedocs.io/en/latest/index.html">https://github-bot-tutorial.readthedocs.io/en/latest/index.html</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Github-Bot&quot;&gt;&lt;a href=&quot;#Github-Bot&quot; class=&quot;headerlink&quot; title=&quot;Github Bot&quot;&gt;&lt;/a&gt;Github Bot&lt;/h1&gt;&lt;p&gt;Register &lt;a href=&quot;https://signup.herok</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>GIL, the magic lock inside the CPython</title>
@@ -150,9 +170,9 @@
     
     
     
-    <category term="vulnerability" scheme="https://krnick.github.io/tags/vulnerability/"/>
-    
     <category term="python" scheme="https://krnick.github.io/tags/python/"/>
+    
+    <category term="vulnerability" scheme="https://krnick.github.io/tags/vulnerability/"/>
     
   </entry>
   
