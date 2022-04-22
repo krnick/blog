@@ -82,9 +82,6 @@ Creat a new webhook at the repo you want to build
 
 Set your key at Heroku
 
-![](https://i.imgur.com/cyWVRKa.png)
-
-![](https://i.imgur.com/CMCeenL.png)
 
 GH_AUTH
 

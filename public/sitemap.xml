@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/index.html</loc>
+    <loc>https://krnick.github.io/categories/index.html</loc>
     
     <lastmod>2022-04-21</lastmod>
     
   </url>
   
   <url>
-    <loc>https://krnick.github.io/categories/index.html</loc>
+    <loc>https://krnick.github.io/tags/index.html</loc>
     
     <lastmod>2022-04-21</lastmod>
     
@@ -109,6 +109,20 @@
   </url>
   
   <url>
+    <loc>https://krnick.github.io/tags/vulnerability/</loc>
+    <lastmod>2022-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://krnick.github.io/tags/python/</loc>
+    <lastmod>2022-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://krnick.github.io/tags/Debian/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>daily</changefreq>
@@ -130,13 +144,6 @@
   </url>
   
   <url>
-    <loc>https://krnick.github.io/tags/python/</loc>
-    <lastmod>2022-04-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://krnick.github.io/tags/github/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>daily</changefreq>
@@ -152,13 +159,6 @@
   
   <url>
     <loc>https://krnick.github.io/tags/git/</loc>
-    <lastmod>2022-04-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://krnick.github.io/tags/vulnerability/</loc>
     <lastmod>2022-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
