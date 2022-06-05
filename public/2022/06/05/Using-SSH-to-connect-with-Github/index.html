@@ -13,6 +13,10 @@
     
 
     
+        <meta name="description" content="Using SSH to connect with GithubCreat your own dir for ssh123mkdir ~/.sshchmod 700 ~/.ssh
+
+Generate your Key123456cd ~/.sshssh-keygen -t rsa -b 4096 -"/>
+    
 
     <!--Author-->
     
@@ -21,10 +25,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Tags"/>
+        <meta property="og:title" content="Using SSH to connect with Github"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Using SSH to connect with GithubCreat your own dir for ssh123mkdir ~/.sshchmod 700 ~/.ssh
+
+Generate your Key123456cd ~/.sshssh-keygen -t rsa -b 4096 -"/>
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>Tags - JunWei Song&#39; Blog</title>
+    <title>Using SSH to connect with Github - JunWei Song&#39; Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -166,115 +174,67 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/Android/">
-        <h1 class="post-title archive">
-            Android
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Debian/">
-        <h1 class="post-title archive">
-            Debian
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Linux/">
-        <h1 class="post-title archive">
-            Linux
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Kali-Linux/">
-        <h1 class="post-title archive">
-            Kali Linux
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/Malware/">
-        <h1 class="post-title archive">
-            Malware
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/vulnerability/">
-        <h1 class="post-title archive">
-            vulnerability
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/python/">
-        <h1 class="post-title archive">
-            python
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/github/">
-        <h1 class="post-title archive">
-            github
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/pypi/">
-        <h1 class="post-title archive">
-            pypi
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/git/">
-        <h1 class="post-title archive">
-            git
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>Using SSH to connect with Github</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-06-05
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Using-SSH-to-connect-with-Github"><a href="#Using-SSH-to-connect-with-Github" class="headerlink" title="Using SSH to connect with Github"></a>Using SSH to connect with Github</h1><h2 id="Creat-your-own-dir-for-ssh"><a href="#Creat-your-own-dir-for-ssh" class="headerlink" title="Creat your own dir for ssh"></a>Creat your own dir for ssh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.ssh</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<h2 id="Generate-your-Key"><a href="#Generate-your-Key" class="headerlink" title="Generate your Key"></a>Generate your Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># copy item from id_rsa.pub</span></span><br><span class="line"><span class="built_in">cat</span> id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h2 id="Set-up-your-Github"><a href="#Set-up-your-Github" class="headerlink" title="Set up your Github"></a>Set up your Github</h2><p><img src="https://i.imgur.com/QSUS6qb.png"><br><img src="https://i.imgur.com/PpZMrWV.png"><br><img src="https://i.imgur.com/zHo92u9.png"></p>
+<p>Paste your content of the id_rsa.pub to here<br><img src="https://i.imgur.com/cFmIzKG.png"></p>
+<h2 id="Test-it"><a href="#Test-it" class="headerlink" title="Test it"></a>Test it</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git@github.com:krnick/your_repo.git</span><br></pre></td></tr></table></figure>
 
 
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
 
 
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr />
