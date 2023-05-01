@@ -13,7 +13,10 @@
     
 
     
-        <meta name="description" content="Hi there 👋"/>
+        <meta name="description" content="Debug Golang with VSCodeExampleCreate a simple go lang file with the below code:
+main.go
+
+123456789101112131415package mainimport (	&amp;quot;fmt&amp;quot;	&amp;q"/>
     
 
     <!--Author-->
@@ -23,12 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="About"/>
+        <meta property="og:title" content="Debug Golang with VSCode"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Hi there 👋"/>
+        <meta property="og:description" content="Debug Golang with VSCodeExampleCreate a simple go lang file with the below code:
+main.go
+
+123456789101112131415package mainimport (	&amp;quot;fmt&amp;quot;	&amp;q"/>
     
 
     <!--Open Graph Site Name-->
@@ -55,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>About - JunWei Song&#39; Blog</title>
+    <title>Debug Golang with VSCode - JunWei Song&#39; Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -170,11 +176,7 @@
 </nav>
 
     <!-- Main Content -->
-    
-
-
-    <section class="main">
-        <!-- Page Header -->
+    <!-- Page Header -->
 <!-- Set your background image for this header in your post front-matter: cover -->
 
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
@@ -182,7 +184,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>About</h1>
+                    <h1>Debug Golang with VSCode</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -210,19 +212,32 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3 id="Hi-there-👋"><a href="#Hi-there-👋" class="headerlink" title="Hi there 👋"></a>Hi there 👋</h3><h4 id="Who-am-I"><a href="#Who-am-I" class="headerlink" title="Who am I"></a>Who am I</h4><p>JunWei is a malware researcher at Recorded Future Triage Sandbox. With a passion for malware analysis, reverse engineering, and threat intelligence. Also, I’ve been very involved in open-source projects, used to be the lead developer of Quark-Engine, mentor of the GSoC Honeynet project, and package maintainer of Kali Linux.</p>
-<p>Also, as a volunteer for the PyCon APAC&#x2F;TW Program Chair, I helped organize the PyCon Taiwan conference. I also gave talks at security conferences like Black Hat, DEFCON, HITB, and ROOTCON.</p>
-<h4 id="Open-Source-Community"><a href="#Open-Source-Community" class="headerlink" title="Open Source Community"></a>Open Source Community</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/quark-engine/quark-engine">Quark-Engine</a> - Creator</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/twbgc/sunzip">sunzip</a> - Creator</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/androguard/androguard">Androguard</a> - Contributor &amp; PyPi Maintainer</li>
-<li><a target="_blank" rel="noopener" href="http://pkg.kali.org/pkg/quark-engine">Kali Linux</a> - Quark-Engine package maintainer</li>
-<li><a target="_blank" rel="noopener" href="https://www.honeynet.org/gsoc/gsoc-2021/google-summer-of-code-2021-project-ideas/#quark">Google Summer of Code</a> - Mentor under Honeynet project</li>
+                <h1 id="Debug-Golang-with-VSCode"><a href="#Debug-Golang-with-VSCode" class="headerlink" title="Debug Golang with VSCode"></a>Debug Golang with VSCode</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Create-a-simple-go-lang-file-with-the-below-code"><a href="#Create-a-simple-go-lang-file-with-the-below-code" class="headerlink" title="Create a simple go lang file with the below code:"></a>Create a simple go lang file with the below code:</h3><ul>
+<li>main.go</li>
 </ul>
-<h4 id="Talks"><a href="#Talks" class="headerlink" title="Talks"></a>Talks</h4><ul>
-<li>🌱 <a target="_blank" rel="noopener" href="https://github.com/krnick/talks">My Previous Talks</a></li>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">	<span class="string">&quot;strings&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"></span><br><span class="line">	name := os.Args[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">&quot;hello &quot;</span> + strings.Join(name, <span class="string">&quot;&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/bGNM5Od.png"></p>
+<h3 id="Make-sure-the-go-mod-is-initialized"><a href="#Make-sure-the-go-mod-is-initialized" class="headerlink" title="Make sure the go.mod is initialized"></a>Make sure the go.mod is initialized</h3><ul>
+<li>go.mod</li>
 </ul>
-<p><img src="https://github-readme-stats.vercel.app/api?username=krnick&theme=blue-green&show_icons=true" alt="JunWei Song&#39;s Github stats"></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module test-debug</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.19</span></span><br></pre></td></tr></table></figure>
+
+
+<p>it will print the args from the command-line args</p>
+<h3 id="Switch-to-the-Run-and-Debug"><a href="#Switch-to-the-Run-and-Debug" class="headerlink" title="Switch to the Run and Debug"></a>Switch to the <code>Run and Debug</code></h3><p>And choose the <code>create a launch.json</code> file and fill in the config for debugging</p>
+<p><img src="https://i.imgur.com/RgJ5fZw.png"></p>
+<p><img src="https://i.imgur.com/b17ir3J.png"></p>
+<p><img src="https://i.imgur.com/LgB5Pfn.png"></p>
+<p>The config example is below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // Use IntelliSense to learn about possible attributes.</span><br><span class="line">    // Hover to view descriptions of existing attributes.</span><br><span class="line">    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Launch Package&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;go&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;mode&quot;: &quot;auto&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;&quot;,</span><br><span class="line">            &quot;args&quot;: [&quot;nick&quot;,&quot;ben&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>the <strong>args</strong> are the arguments you want to put after the go program, for example:</p>
+<p><code>go run main.go nick ben</code></p>
+<p>then the “<strong>args</strong>“ is:</p>
+<p><code>&quot;args&quot;: [&quot;nick&quot;,&quot;ben&quot;]</code></p>
+<h3 id="Now-you-can-start-your-debugging"><a href="#Now-you-can-start-your-debugging" class="headerlink" title="Now you can start your debugging"></a>Now you can start your debugging</h3><p><img src="https://i.imgur.com/KSj1CPp.png"></p>
+<p><img src="https://i.imgur.com/ru9VdPO.png"></p>
 
 
                 
@@ -239,12 +254,6 @@
         </div>
     </div>
 </article>
-    </section>
-
-
-
-
-
 
     <!-- Footer -->
     <hr />
