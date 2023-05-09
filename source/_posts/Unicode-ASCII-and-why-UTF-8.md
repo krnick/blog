@@ -3,7 +3,6 @@ title: 'Unicode, ASCII, and why UTF-8'
 date: 2023-05-09 21:01:54
 tags:
 ---
-
 # Unicode, ASCII, and why UTF-8
 
 ## 歷史
@@ -29,8 +28,8 @@ Unicode 解析編碼有幾種，包括 UTF-32、UTF-16、UTF-8。其中，UTF-32
 ## 例如
 
 * 世界
-* "\u4e16\u754c" 世界 的 \u unicode code point 表示法
-* "\xe4\xb8\x96\xe7\x95\x8c" 的 \x unicode code point 表示法
+* "\u4e16\u754c" 為 `世界` 的 \u unicode code point 表示法
+* "\xe4\xb8\x96\xe7\x95\x8c" 為 `世界` 的 \x unicode code point 表示法
 
 
 其中，若將"\u4e16"轉換為單一 byte 的表示方式，轉換流程如下：
@@ -41,7 +40,6 @@ Unicode 解析編碼有幾種，包括 UTF-32、UTF-16、UTF-8。其中，UTF-32
 1. 得到結果：11100100 10111000 10010110
 1. 再將此2進位表示轉換為16進位 -> E4B896
 1. 因此，"\u4e16"在UTF-8編碼下所對應的bytes為3，並且分別為"\xE4"、"\xB8"和"\x96"。
-
 
 Ref:
 https://www.youtube.com/watch?v=ut74oHojxqo&ab_channel=StudyingWithAlex
