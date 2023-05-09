@@ -42,3 +42,6 @@ Unicode 解析編碼有幾種，包括 UTF-32、UTF-16、UTF-8。其中，UTF-32
 1. 再將此2進位表示轉換為16進位 -> E4B896
 1. 因此，"\u4e16"在UTF-8編碼下所對應的bytes為3，並且分別為"\xE4"、"\xB8"和"\x96"。
 
+
+Ref:
+https://www.youtube.com/watch?v=ut74oHojxqo&ab_channel=StudyingWithAlex
