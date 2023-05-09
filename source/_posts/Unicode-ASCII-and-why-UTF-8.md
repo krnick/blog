@@ -3,6 +3,7 @@ title: 'Unicode, ASCII, and why UTF-8'
 date: 2023-05-09 21:01:54
 tags:
 ---
+
 # Unicode, ASCII, and why UTF-8
 
 ## 歷史
@@ -17,13 +18,14 @@ Unicode 解析編碼有幾種，包括 UTF-32、UTF-16、UTF-8。其中，UTF-32
 
 ## 格式
 
-0xxxxxxx                              -> 0-127 ASCII
+0xxxxxxx                              -> 0-127 (同 ASCII)
 110xxxxx 10xxxxxx                     -> 128-2047
 1110xxxx 10xxxxxx 10xxxxxx            -> 2048-65535
 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx   -> 65536-0x10ffff
 
-\u 16 bit unicode (\uhhhh)
-\U 32 bit unicode (\Uhhhhhhhh)
+\x 代表 1 byte
+\u 代表 16 bit unicode (\uhhhh)
+\U 代表 2 bit unicode (\Uhhhhhhhh)
 
 ## 例如
 
@@ -32,12 +34,12 @@ Unicode 解析編碼有幾種，包括 UTF-32、UTF-16、UTF-8。其中，UTF-32
 * "\xe4\xb8\x96\xe7\x95\x8c" 為 `世界` 的 \x unicode code point 表示法
 
 
-其中，若將"\u4e16"轉換為單一 byte 的表示方式，轉換流程如下：
+其中，若要將 "\u4e16" 轉換為單一 byte 的表示方式，轉換流程如下：
 
 1. 先將"\u4e16"轉換成2進位表示 -> 0100111000010110
 1. 依照範圍，0100111000010110 需要使用3個bytes，也就是 1110xxxx 10xxxxxx 10xxxxxx
 1. 將對應的2進位 -> 0100111000010110，依序填入 xxx 中
-1. 得到結果：11100100 10111000 10010110
+1. 得到結果：1110`0100` 10`111000` 10`010110`
 1. 再將此2進位表示轉換為16進位 -> E4B896
 1. 因此，"\u4e16"在UTF-8編碼下所對應的bytes為3，並且分別為"\xE4"、"\xB8"和"\x96"。
 
